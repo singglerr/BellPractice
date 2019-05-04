@@ -21,10 +21,10 @@ CREATE TABLE IF NOT EXISTS Position (
 CREATE TABLE IF NOT EXISTS Document (
     id            INTEGER PRIMARY KEY AUTO_INCREMENT,
     version       INTEGER NOT NULL       COMMENT 'Служебное поле hibernate',
-    type_id       INTEGER NOT NULL       COMMENT 'Уникальный идентификатор типа документа',
     number        VARCHAR(50) NOT NULL   COMMENT 'Номер документа',
     date          DATE NOT NULL          COMMENT 'Дата выдачи документа',
     is_identified BOOLEAN NOT NULL       COMMENT 'Подтверждён ли документ',
+    type_id       INTEGER NOT NULL       COMMENT 'Уникальный идентификатор типа документа',
 
     FOREIGN KEY (type_id) REFERENCES Doc_type (id)
 );
@@ -41,13 +41,13 @@ CREATE TABLE IF NOT EXISTS Organization (
 
 CREATE TABLE IF NOT EXISTS Office (
     id          INTEGER PRIMARY KEY AUTO_INCREMENT,
-    org_id      INTEGER NOT NULL               COMMENT 'Уникальный идентификатор организации',
-    superior_id INTEGER                        COMMENT 'Если поле пустое, то этот офис является главным, иначе оно указывает на вышестоящий офис',
     version     INTEGER NOT NULL               COMMENT 'Служебное поле hibernate',
     name        VARCHAR(50) NOT NULL           COMMENT 'Название',
     address     VARCHAR(80) NOT NULL           COMMENT 'Адрес',
     phone       VARCHAR(20)                    COMMENT 'Телефонный номер',
     is_active   BOOLEAN NOT NULL DEFAULT FALSE COMMENT 'Активен ли офис',
+    org_id      INTEGER NOT NULL               COMMENT 'Уникальный идентификатор организации',
+    superior_id INTEGER                        COMMENT 'Если поле пустое, то этот офис является главным, иначе оно указывает на вышестоящий офис',
 
     FOREIGN KEY (org_id) REFERENCES Organization(id)
 );
@@ -55,15 +55,15 @@ CREATE INDEX IX_Office_Org_Id ON Office (org_id);
 
 CREATE TABLE IF NOT EXISTS User (
     id            INTEGER PRIMARY KEY AUTO_INCREMENT,
-    doc_id        INTEGER NOT NULL             COMMENT 'Уникальный идентификатор документа сотрудника',
-    office_id     INTEGER NOT NULL             COMMENT 'Уникальный идентификатор офиса',
-    country_id    INTEGER NOT NULL             COMMENT 'Уникальный идентификатор страны',
-    position_id   INTEGER NOT NULL             COMMENT 'Уникальный идентификатор должности сотрудника',
     version       INTEGER NOT NULL             COMMENT 'Служебное поле hibernate',
     first_name    VARCHAR(50) NOT NULL         COMMENT 'Имя',
     second_name   VARCHAR(50)                  COMMENT 'Фамилия',
     middle_name   VARCHAR(50)                  COMMENT 'Отчество',
     phone         VARCHAR(20)                  COMMENT 'Телефонный номер',
+    doc_id        INTEGER NOT NULL             COMMENT 'Уникальный идентификатор документа сотрудника',
+    office_id     INTEGER NOT NULL             COMMENT 'Уникальный идентификатор офиса',
+    country_id    INTEGER NOT NULL             COMMENT 'Уникальный идентификатор страны',
+    position_id   INTEGER NOT NULL             COMMENT 'Уникальный идентификатор должности сотрудника',
 
     UNIQUE (doc_id),
     FOREIGN KEY (doc_id) REFERENCES Document(id),
