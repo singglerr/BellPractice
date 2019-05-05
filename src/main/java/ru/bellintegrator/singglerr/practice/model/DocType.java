@@ -15,8 +15,8 @@ public class DocType {
 	@Version
 	private Integer version;
 
-	@Column(name = "code", nullable = false)
-	private int code;
+	@Column(name = "code", length = 2, nullable = false)
+	private String code;
 
 	@Column(name = "name", length = 128, nullable = false)
 	private String name;
@@ -25,7 +25,7 @@ public class DocType {
 
 	}
 
-	public DocType(int code, String name){
+	public DocType(String code, String name){
 		this.code = code;
 		this.name = name;
 	}
@@ -34,11 +34,11 @@ public class DocType {
 		return id;
 	}
 
-	public int getCode() {
+	public String getCode() {
 		return code;
 	}
 
-	public void setCode(int code) {
+	public void setCode(String code) {
 		this.code = code;
 	}
 

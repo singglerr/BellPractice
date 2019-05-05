@@ -1,21 +1,29 @@
 CREATE TABLE IF NOT EXISTS Doc_type (
     id      INTEGER PRIMARY KEY AUTO_INCREMENT,
     version INTEGER NOT NULL       COMMENT 'Служебное поле hibernate',
-    code    INTEGER NOT NULL       COMMENT 'Код вида документа',
+    code    VARCHAR(2) NOT NULL    COMMENT 'Код вида документа',
     name    VARCHAR(128) NOT NULL  COMMENT 'Название вида документа',
+
+    UNIQUE (code),
+    UNIQUE (name)
 );
 
 CREATE TABLE IF NOT EXISTS Country (
     id      INTEGER PRIMARY KEY AUTO_INCREMENT,
     version INTEGER NOT NULL       COMMENT 'Служебное поле hibernate',
-    code    INTEGER NOT NULL       COMMENT 'Код страны',
+    code    VARCHAR(3) NOT NULL    COMMENT 'Код страны',
     name    VARCHAR(60) NOT NULL   COMMENT 'Название страны',
+
+    UNIQUE (code),
+    UNIQUE (name)
 );
 
 CREATE TABLE IF NOT EXISTS Position (
     id      INTEGER PRIMARY KEY AUTO_INCREMENT,
     version INTEGER NOT NULL       COMMENT 'Служебное поле hibernate',
     name    VARCHAR(100) NOT NULL  COMMENT 'Название должности',
+
+    UNIQUE (name)
 );
 
 CREATE TABLE IF NOT EXISTS Document (
