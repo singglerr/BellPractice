@@ -32,7 +32,7 @@ public class Office {
 	@JoinColumn(name = "org_id")
 	private Organization organization;
 
-	@OneToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "superior_id")
 	private Office superiorOffice;
 

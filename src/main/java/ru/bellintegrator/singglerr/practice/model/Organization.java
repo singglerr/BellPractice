@@ -3,6 +3,7 @@ package ru.bellintegrator.singglerr.practice.model;
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Entity
 @Table(name = "Organization")
@@ -78,8 +79,8 @@ public class Organization {
 	}
 
 	public List<Office> getOffices() {
-		if (offices == null){
-			offices =  new ArrayList<>();
+		if (offices == null) {
+			offices = new ArrayList<>();
 		}
 		return offices;
 	}
@@ -88,13 +89,34 @@ public class Organization {
 		this.offices = offices;
 	}
 
-	public void addOffice(Office office){
+	public void addOffice(Office office) {
 		getOffices().add(office);
 		office.setOrganization(this);
 	}
 
-	public void removeOffice(Office office){
+	public void removeOffice(Office office) {
 		getOffices().remove(office);
 		office.setOrganization(null);
+	}
+
+	public Optional<Office> getMainOffice() {
+		Office main = null;
+		for (Office office : getOffices()) {
+			if (office.getSuperiorOffice() == null) {
+				main = office;
+				break;
+			}
+		}
+		return Optional.ofNullable(main);
+	}
+
+	public void setMainOffice(Office main) {
+		for (Office office : getOffices()) {
+			if (office == main) {
+				office.setSuperiorOffice(null);
+			} else {
+				office.setSuperiorOffice(main);
+			}
+		}
 	}
 }
