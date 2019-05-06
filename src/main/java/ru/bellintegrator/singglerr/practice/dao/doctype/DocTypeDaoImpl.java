@@ -1,8 +1,9 @@
-package ru.bellintegrator.singglerr.practice.dao.country;
+package ru.bellintegrator.singglerr.practice.dao.doctype;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import ru.bellintegrator.singglerr.practice.model.Country;
+import ru.bellintegrator.singglerr.practice.model.DocType;
 
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
@@ -15,12 +16,12 @@ import java.util.List;
  * {@inheritDoc}
  */
 @Repository
-public class CountryDaoImpl implements CountryDao {
+public class DocTypeDaoImpl implements DocTypeDao{
 
 	private final EntityManager em;
 
 	@Autowired
-	public CountryDaoImpl(EntityManager em) {
+	public DocTypeDaoImpl(EntityManager em) {
 		this.em = em;
 	}
 
@@ -28,8 +29,8 @@ public class CountryDaoImpl implements CountryDao {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public List<Country> all() {
-		TypedQuery<Country> query = em.createQuery("SELECT c FROM Country c", Country.class);
+	public List<DocType> all() {
+		TypedQuery<DocType> query = em.createQuery("SELECT d FROM DocType d", DocType.class);
 		return query.getResultList();
 	}
 
@@ -37,9 +38,9 @@ public class CountryDaoImpl implements CountryDao {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public Country loadByCode(String code) {
-		CriteriaQuery<Country> criteria = buildCriteriaBy("code", code);
-		TypedQuery<Country> query = em.createQuery(criteria);
+	public DocType loadByCode(String code) {
+		CriteriaQuery<DocType> criteria = buildCriteriaBy("code", code);
+		TypedQuery<DocType> query = em.createQuery(criteria);
 		return query.getSingleResult();
 	}
 
@@ -47,17 +48,17 @@ public class CountryDaoImpl implements CountryDao {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public Country loadByName(String name) {
-		CriteriaQuery<Country> criteria = buildCriteriaBy("name", name);
-		TypedQuery<Country> query = em.createQuery(criteria);
+	public DocType loadByName(String name) {
+		CriteriaQuery<DocType> criteria = buildCriteriaBy("name", name);
+		TypedQuery<DocType> query = em.createQuery(criteria);
 		return query.getSingleResult();
 	}
 
-	private <T> CriteriaQuery<Country> buildCriteriaBy(String paramName, T param) {
+	private <T> CriteriaQuery<DocType> buildCriteriaBy(String paramName, T param) {
 		CriteriaBuilder builder = em.getCriteriaBuilder();
-		CriteriaQuery<Country> criteria = builder.createQuery(Country.class);
+		CriteriaQuery<DocType> criteria = builder.createQuery(DocType.class);
 
-		Root<Country> person = criteria.from(Country.class);
+		Root<DocType> person = criteria.from(DocType.class);
 		criteria.where(builder.equal(person.get(paramName), param));
 
 		return criteria;

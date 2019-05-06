@@ -10,7 +10,7 @@ public interface CountryService {
 
 	/**
 	 * Получить список стран
-	 * @return возвращает список стран
+	 * @return
 	 */
 	List<CountryView> countries();
 }

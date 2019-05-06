@@ -1,11 +1,11 @@
-package ru.bellintegrator.singglerr.practice.service.country;
+package ru.bellintegrator.singglerr.practice.service.doctype;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import ru.bellintegrator.singglerr.practice.dao.country.CountryDao;
+import ru.bellintegrator.singglerr.practice.dao.doctype.DocTypeDao;
 import ru.bellintegrator.singglerr.practice.model.mapper.MapperFacade;
-import ru.bellintegrator.singglerr.practice.view.CountryView;
+import ru.bellintegrator.singglerr.practice.view.DocTypeView;
 
 import java.util.List;
 
@@ -13,13 +13,13 @@ import java.util.List;
  * {@inheritDoc}
  */
 @Service
-public class CountryServiceImpl implements CountryService {
+public class DocTypeServiceImpl implements DocTypeService{
 
-	private final CountryDao dao;
+	private final DocTypeDao dao;
 	private final MapperFacade mapperFacade;
 
 	@Autowired
-	public CountryServiceImpl(CountryDao dao, MapperFacade mapperFacade) {
+	public DocTypeServiceImpl(DocTypeDao dao, MapperFacade mapperFacade) {
 		this.dao = dao;
 		this.mapperFacade = mapperFacade;
 	}
@@ -27,9 +27,9 @@ public class CountryServiceImpl implements CountryService {
 	/**
 	 * {@inheritDoc}
 	 */
-	@Override
 	@Transactional(readOnly = true)
-	public List<CountryView> countries() {
-		return mapperFacade.mapAsList(dao.all(), CountryView.class);
+	@Override
+	public List<DocTypeView> docTypes() {
+		return mapperFacade.mapAsList(dao.all(), DocTypeView.class);
 	}
 }
