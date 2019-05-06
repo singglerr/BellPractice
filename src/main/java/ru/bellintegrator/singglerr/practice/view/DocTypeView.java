@@ -12,15 +12,31 @@ public class DocTypeView {
 	@Size(min = 2, max = 2)
 	@NotEmpty(message = "code can't be null")
 	@ApiModelProperty(value = "Код вида документа", example = "21")
-	public String code;
+	private String code;
 
 	@Size(max = 128)
 	@NotEmpty(message = "name can't be null")
 	@ApiModelProperty(value = "Название вида документа", example = "Паспорт гражданина РФ")
-	public String name;
+	private String name;
 
 	@Override
 	public String toString() {
 		return "{code:" + code + ";name:" + name + "}";
+	}
+
+	public String getCode() {
+		return code;
+	}
+
+	public void setCode(String code) {
+		this.code = code;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
 	}
 }
