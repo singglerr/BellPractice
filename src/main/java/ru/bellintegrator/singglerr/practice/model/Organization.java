@@ -29,17 +29,26 @@ public class Organization {
 	@Column(name = "kpp", length = 9, nullable = false)
 	private String kpp;
 
-	@OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, mappedBy = "organization")
-	private List<Office> offices;
+	@Column(name = "addres", length = 80, nullable = false)
+	private String address;
+
+	@Column(name = "phone", length = 20)
+	private String phone;
+
+	@Column(name = "is_active")
+	private Boolean isActive = false;
 
 	public Organization() {
 	}
 
-	public Organization(String name, String fullName, String inn, String kpp) {
+	public Organization(String name, String fullName, String inn, String kpp, String address, String phone, Boolean isActive) {
 		this.name = name;
 		this.fullName = fullName;
 		this.inn = inn;
 		this.kpp = kpp;
+		this.address = address;
+		this.phone = phone;
+		this.isActive = isActive;
 	}
 
 	public Long getId() {
@@ -78,45 +87,27 @@ public class Organization {
 		this.kpp = kpp;
 	}
 
-	public List<Office> getOffices() {
-		if (offices == null) {
-			offices = new ArrayList<>();
-		}
-		return offices;
+	public String getAddress() {
+		return address;
 	}
 
-	public void setOffices(List<Office> offices) {
-		this.offices = offices;
+	public void setAddress(String address) {
+		this.address = address;
 	}
 
-	public void addOffice(Office office) {
-		getOffices().add(office);
-		office.setOrganization(this);
+	public String getPhone() {
+		return phone;
 	}
 
-	public void removeOffice(Office office) {
-		getOffices().remove(office);
-		office.setOrganization(null);
+	public void setPhone(String phone) {
+		this.phone = phone;
 	}
 
-	public Optional<Office> getMainOffice() {
-		Office main = null;
-		for (Office office : getOffices()) {
-			if (office.getSuperiorOffice() == null) {
-				main = office;
-				break;
-			}
-		}
-		return Optional.ofNullable(main);
+	public Boolean getActive() {
+		return isActive;
 	}
 
-	public void setMainOffice(Office main) {
-		for (Office office : getOffices()) {
-			if (office == main) {
-				office.setSuperiorOffice(null);
-			} else {
-				office.setSuperiorOffice(main);
-			}
-		}
+	public void setActive(Boolean active) {
+		isActive = active;
 	}
 }

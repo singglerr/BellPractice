@@ -16,40 +16,31 @@ public class Office {
 	@Version
 	private Integer version;
 
-	@Column(name = "name", length = 50, nullable = false)
+	@Column(name = "name", length = 50)
 	private String name;
 
-	@Column(name = "address", length = 80, nullable = false)
+	@Column(name = "address", length = 80)
 	private String address;
 
 	@Column(name = "phone", length = 20)
 	private String phone;
 
-	@Column(name = "is_active", nullable = false)
+	@Column(name = "is_active")
 	private boolean isActive;
 
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "org_id")
+	@JoinColumn(name = "org_id", nullable = false)
 	private Organization organization;
-
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "superior_id")
-	private Office superiorOffice;
-
-	@OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, mappedBy = "office")
-	private List<User> users;
 
 	public Office() {
 	}
 
-	public Office(String name, String address, String phone, boolean isActive, Organization organization,
-				  Office superiorOffice) {
+	public Office(String name, String address, String phone, boolean isActive, Organization organization) {
 		this.name = name;
 		this.address = address;
 		this.phone = phone;
 		this.isActive = isActive;
 		this.organization = organization;
-		this.superiorOffice = superiorOffice;
 	}
 
 	public Long getId() {
@@ -94,34 +85,5 @@ public class Office {
 
 	public void setOrganization(Organization organization) {
 		this.organization = organization;
-	}
-
-	public Office getSuperiorOffice() {
-		return superiorOffice;
-	}
-
-	public void setSuperiorOffice(Office superiorOffice) {
-		this.superiorOffice = superiorOffice;
-	}
-
-	public List<User> getUsers() {
-		if (users == null){
-			users = new ArrayList<>();
-		}
-		return users;
-	}
-
-	public void setUsers(List<User> users) {
-		this.users = users;
-	}
-
-	public void addUser(User user){
-		getUsers().add(user);
-		user.setOffice(this);
-	}
-
-	public void removeUser(User user){
-		getUsers().remove(user);
-		user.setOffice(null);
 	}
 }

@@ -28,11 +28,11 @@ CREATE TABLE IF NOT EXISTS Position (
 
 CREATE TABLE IF NOT EXISTS Document (
     id            INTEGER PRIMARY KEY AUTO_INCREMENT,
-    version       INTEGER NOT NULL       COMMENT 'Служебное поле hibernate',
-    number        VARCHAR(50) NOT NULL   COMMENT 'Номер документа',
-    date          DATE NOT NULL          COMMENT 'Дата выдачи документа',
-    is_identified BOOLEAN NOT NULL       COMMENT 'Подтверждён ли документ',
-    type_id       INTEGER NOT NULL       COMMENT 'Уникальный идентификатор типа документа',
+    version       INTEGER NOT NULL               COMMENT 'Служебное поле hibernate',
+    number        VARCHAR(50) NOT NULL           COMMENT 'Номер документа',
+    date          DATE NOT NULL                  COMMENT 'Дата выдачи документа',
+    is_identified BOOLEAN NOT NULL DEFAULT FALSE COMMENT 'Подтверждён ли документ',
+    type_id       INTEGER NOT NULL               COMMENT 'Уникальный идентификатор типа документа',
 
     FOREIGN KEY (type_id) REFERENCES Doc_type (id)
 );
@@ -45,17 +45,19 @@ CREATE TABLE IF NOT EXISTS Organization (
     full_name VARCHAR(255) NOT NULL  COMMENT 'Полное название организации',
     inn       VARCHAR(12) NOT NULL   COMMENT 'ИНН организации',
     kpp       VARCHAR(9) NOT NULL    COMMENT 'Код причины постановки на учёт',
+    address   VARCHAR(80) NOT NULL   COMMENT 'Адрес организации',
+    phone     VARCHAR(20)            COMMENT 'Телефонный номер организации',
+    is_active BOOLEAN DEFAULT FALSE  COMMENT 'Активна ли организация'
 );
 
 CREATE TABLE IF NOT EXISTS Office (
     id          INTEGER PRIMARY KEY AUTO_INCREMENT,
-    version     INTEGER NOT NULL               COMMENT 'Служебное поле hibernate',
-    name        VARCHAR(50) NOT NULL           COMMENT 'Название',
-    address     VARCHAR(80) NOT NULL           COMMENT 'Адрес',
-    phone       VARCHAR(20)                    COMMENT 'Телефонный номер',
-    is_active   BOOLEAN NOT NULL DEFAULT FALSE COMMENT 'Активен ли офис',
-    org_id      INTEGER NOT NULL               COMMENT 'Уникальный идентификатор организации',
-    superior_id INTEGER                        COMMENT 'Если поле пустое, то этот офис является главным, иначе оно указывает на вышестоящий офис',
+    version     INTEGER NOT NULL      COMMENT 'Служебное поле hibernate',
+    name        VARCHAR(50)           COMMENT 'Название',
+    address     VARCHAR(80)           COMMENT 'Адрес',
+    phone       VARCHAR(20)           COMMENT 'Телефонный номер',
+    is_active   BOOLEAN DEFAULT FALSE COMMENT 'Активен ли офис',
+    org_id      INTEGER NOT NULL      COMMENT 'Уникальный идентификатор организации',
 
     FOREIGN KEY (org_id) REFERENCES Organization(id)
 );
@@ -68,9 +70,9 @@ CREATE TABLE IF NOT EXISTS User (
     second_name   VARCHAR(50)                  COMMENT 'Фамилия',
     middle_name   VARCHAR(50)                  COMMENT 'Отчество',
     phone         VARCHAR(20)                  COMMENT 'Телефонный номер',
-    doc_id        INTEGER NOT NULL             COMMENT 'Уникальный идентификатор документа сотрудника',
+    doc_id        INTEGER                      COMMENT 'Уникальный идентификатор документа сотрудника',
     office_id     INTEGER NOT NULL             COMMENT 'Уникальный идентификатор офиса',
-    country_id    INTEGER NOT NULL             COMMENT 'Уникальный идентификатор страны',
+    country_id    INTEGER                      COMMENT 'Уникальный идентификатор страны',
     position_id   INTEGER NOT NULL             COMMENT 'Уникальный идентификатор должности сотрудника',
 
     UNIQUE (doc_id),

@@ -31,7 +31,7 @@ public class User {
 	private Document document;
 
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "office_id")
+	@JoinColumn(name = "office_id", nullable = false)
 	private Office office;
 
 	@ManyToOne(fetch = FetchType.LAZY)
@@ -39,7 +39,7 @@ public class User {
 	private Country country;
 
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "position_id")
+	@JoinColumn(name = "position_id", nullable = false)
 	private Position position;
 
 	public User() {
