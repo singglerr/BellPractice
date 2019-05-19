@@ -9,7 +9,7 @@ import javax.validation.constraints.Size;
 @ApiModel(value = "Фильтр, по которому формируется список организаций")
 public class OrganizationFilterView {
 
-    @NotEmpty
+    @NotEmpty(message = "name can't be null")
     @Size(max = 50)
     @ApiModelProperty(value = "Название организации")
     private String name;

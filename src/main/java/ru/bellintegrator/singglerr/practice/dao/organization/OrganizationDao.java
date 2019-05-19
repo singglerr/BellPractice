@@ -14,14 +14,14 @@ public interface OrganizationDao {
      * @param name - название
      * @param inn - ИНН
      * @param isActive - активна ли организация
-     * @return
+     * @return список Organization
      */
     List<Organization> loadListBy(String name, String inn, Boolean isActive);
 
     /**
      * Получить Organization по уникальному идентификатору
      * @param id - уникальный идентификатор
-     * @return
+     * @return Organization
      */
     Organization loadById(Long id);
 
@@ -33,8 +33,8 @@ public interface OrganizationDao {
 
     /**
      * Обновить Organization
-     * @param id - идентификатор
-     * @param organization - организация
+     * @param id - идентификатор организации, которую нужно обновить
+     * @param organization - объект Organization, содержащий данные для обновления
      */
     void update(Long id, Organization organization);
 }

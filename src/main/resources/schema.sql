@@ -53,8 +53,8 @@ CREATE TABLE IF NOT EXISTS Organization (
 CREATE TABLE IF NOT EXISTS Office (
     id          INTEGER PRIMARY KEY AUTO_INCREMENT,
     version     INTEGER NOT NULL      COMMENT 'Служебное поле hibernate',
-    name        VARCHAR(50)           COMMENT 'Название',
-    address     VARCHAR(80)           COMMENT 'Адрес',
+    name        VARCHAR(50) NOT NULL  COMMENT 'Название',
+    address     VARCHAR(80) NOT NULL  COMMENT 'Адрес',
     phone       VARCHAR(20)           COMMENT 'Телефонный номер',
     is_active   BOOLEAN DEFAULT FALSE COMMENT 'Активен ли офис',
     org_id      INTEGER NOT NULL      COMMENT 'Уникальный идентификатор организации',

@@ -56,7 +56,7 @@ public class OrganizationDaoImpl implements OrganizationDao {
         CriteriaQuery<Organization> query = cb.createQuery(Organization.class);
         Root<Organization> org = query.from(Organization.class);
         query.select(org);
-        Predicate mainPred = cb.like(org.get("name"), "%" + name + "%");
+        Predicate mainPred = cb.like(cb.lower(org.get("name")), "%" + name.toLowerCase() + "%");
         if (inn != null && !inn.equals("")){
             mainPred = cb.and(mainPred, cb.equal(org.get("inn"), inn));
         }

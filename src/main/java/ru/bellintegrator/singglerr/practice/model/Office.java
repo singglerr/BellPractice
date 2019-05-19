@@ -16,17 +16,17 @@ public class Office {
 	@Version
 	private Integer version;
 
-	@Column(name = "name", length = 50)
+	@Column(name = "name", length = 50, nullable = false)
 	private String name;
 
-	@Column(name = "address", length = 80)
+	@Column(name = "address", length = 80, nullable = false)
 	private String address;
 
 	@Column(name = "phone", length = 20)
 	private String phone;
 
 	@Column(name = "is_active")
-	private boolean isActive;
+	private Boolean isActive;
 
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "org_id", nullable = false)
@@ -35,7 +35,7 @@ public class Office {
 	public Office() {
 	}
 
-	public Office(String name, String address, String phone, boolean isActive, Organization organization) {
+	public Office(String name, String address, String phone, Boolean isActive, Organization organization) {
 		this.name = name;
 		this.address = address;
 		this.phone = phone;
@@ -71,11 +71,11 @@ public class Office {
 		this.phone = phone;
 	}
 
-	public boolean isActive() {
+	public Boolean isActive() {
 		return isActive;
 	}
 
-	public void setActive(boolean active) {
+	public void setActive(Boolean active) {
 		isActive = active;
 	}
 
