@@ -27,8 +27,8 @@ public class DocTypeServiceImpl implements DocTypeService{
 	/**
 	 * {@inheritDoc}
 	 */
-	@Transactional(readOnly = true)
 	@Override
+	@Transactional(readOnly = true)
 	public List<DocTypeView> docTypes() {
 		return mapperFacade.mapAsList(dao.all(), DocTypeView.class);
 	}

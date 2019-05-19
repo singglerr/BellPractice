@@ -5,11 +5,14 @@ import ru.bellintegrator.singglerr.practice.view.CountryView;
 
 import java.util.List;
 
+/**
+ * Сервис CRUD для Country
+ */
 @Validated
 public interface CountryService {
 
 	/**
-	 * Получить список стран
+	 * Получение списока стран
 	 * @return
 	 */
 	List<CountryView> countries();

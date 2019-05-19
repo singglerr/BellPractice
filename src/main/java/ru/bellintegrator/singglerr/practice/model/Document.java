@@ -29,9 +29,6 @@ public class Document {
 	@JoinColumn(name = "type_id")
 	private DocType docType;
 
-	@OneToOne(fetch = FetchType.LAZY, mappedBy = "document")
-	private User user;
-
 	public Document(){
 
 	}
@@ -77,13 +74,5 @@ public class Document {
 
 	public void setDocType(DocType docType) {
 		this.docType = docType;
-	}
-
-	public User getUser() {
-		return user;
-	}
-
-	public void setUser(User user) {
-		this.user = user;
 	}
 }

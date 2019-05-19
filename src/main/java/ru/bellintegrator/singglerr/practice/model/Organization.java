@@ -1,9 +1,6 @@
 package ru.bellintegrator.singglerr.practice.model;
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
 
 @Entity
 @Table(name = "Organization")
@@ -29,14 +26,14 @@ public class Organization {
 	@Column(name = "kpp", length = 9, nullable = false)
 	private String kpp;
 
-	@Column(name = "addres", length = 80, nullable = false)
+	@Column(name = "address", length = 80, nullable = false)
 	private String address;
 
 	@Column(name = "phone", length = 20)
 	private String phone;
 
 	@Column(name = "is_active")
-	private Boolean isActive = false;
+	private Boolean isActive;
 
 	public Organization() {
 	}
@@ -109,5 +106,11 @@ public class Organization {
 
 	public void setActive(Boolean active) {
 		isActive = active;
+	}
+
+	@Override
+	public String toString() {
+		return "{id:" + id + ";name:" + name + ";fullName:" + fullName + ";inn:" + inn + ";kpp:"  + kpp + ";address:" +
+				address + ";phone:" + phone + ";isActive:" + isActive + "}";
 	}
 }
