@@ -60,8 +60,12 @@ public class OfficeDaoImpl implements OfficeDao {
         Office renewableOffice = loadById(id);
         renewableOffice.setName(office.getName());
         renewableOffice.setAddress(office.getAddress());
-        renewableOffice.setPhone(office.getPhone());
-        renewableOffice.setActive(office.isActive());
+        if (office.getPhone() != null) {
+            renewableOffice.setPhone(office.getPhone());
+        }
+        if (office.isActive() != null ) {
+            renewableOffice.setActive(office.isActive());
+        }
     }
 
     private CriteriaQuery<Office> buildCriteriaBy(Organization org, String name, String phone, Boolean isActive){

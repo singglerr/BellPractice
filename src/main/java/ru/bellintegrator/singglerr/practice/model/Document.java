@@ -23,7 +23,7 @@ public class Document {
 	private Date date;
 
 	@Column(name = "is_identified", nullable = false)
-	private boolean isIdentified;
+	private Boolean isIdentified;
 
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "type_id")
@@ -33,7 +33,7 @@ public class Document {
 
 	}
 
-	public Document(String number, Date date, boolean isIdentified, DocType docType) {
+	public Document(String number, Date date, Boolean isIdentified, DocType docType) {
 		this.number = number;
 		this.date = date;
 		this.isIdentified = isIdentified;
@@ -60,11 +60,11 @@ public class Document {
 		this.date = date;
 	}
 
-	public boolean isIdentified() {
+	public Boolean isIdentified() {
 		return isIdentified;
 	}
 
-	public void setIdentified(boolean identified) {
+	public void setIdentified(Boolean identified) {
 		isIdentified = identified;
 	}
 

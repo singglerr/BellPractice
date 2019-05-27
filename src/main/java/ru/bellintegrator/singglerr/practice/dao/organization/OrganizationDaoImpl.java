@@ -40,15 +40,19 @@ public class OrganizationDaoImpl implements OrganizationDao {
     }
 
     @Override
-    public void update(Long id, Organization newOrganization) {
-        Organization organization = loadById(id);
-        organization.setActive(newOrganization.getActive());
-        organization.setAddress(newOrganization.getAddress());
-        organization.setFullName(newOrganization.getFullName());
-        organization.setInn(newOrganization.getInn());
-        organization.setKpp(newOrganization.getKpp());
-        organization.setName(newOrganization.getName());
-        organization.setPhone(newOrganization.getPhone());
+    public void update(Long id, Organization organization) {
+        Organization renewableOrganization = loadById(id);
+        renewableOrganization.setAddress(organization.getAddress());
+        renewableOrganization.setFullName(organization.getFullName());
+        renewableOrganization.setInn(organization.getInn());
+        renewableOrganization.setKpp(organization.getKpp());
+        renewableOrganization.setName(organization.getName());
+        if (organization.getPhone() != null) {
+            renewableOrganization.setPhone(organization.getPhone());
+        }
+        if (organization.getActive() != null) {
+            renewableOrganization.setActive(organization.getActive());
+        }
     }
 
     private CriteriaQuery<Organization> buildCriteriaBy(String name, String inn, Boolean isActive){

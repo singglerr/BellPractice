@@ -261,14 +261,3 @@ VALUES (1, '36', 'Австралия'),
        (1, '410', 'Республика Корея'),
        (1, '388', 'Ямайка'),
        (1, '392', 'Япония');
-
-INSERT INTO Position(version, name)
-VALUES (1, 'Директор'),
-       (1, 'Главный бухгалтер'),
-       (1, 'Бухгалтер'),
-       (1, 'Программист'),
-       (1, 'Junior Java Developer'),
-       (1, 'Middle Java Developer'),
-       (1, 'Senior Java Developer'),
-       (1, 'Уборщик');
-
