@@ -32,7 +32,7 @@ public interface OfficeService {
      * @param office - данные для добавления нового офиса
      * @return результат выполнение операции
      */
-    ResultView add(@Valid OfficeSaveView office);
+    ResultView add(@Valid SaveOfficeView office);
 
     /**
      * Обновить информацию об офисе в БД

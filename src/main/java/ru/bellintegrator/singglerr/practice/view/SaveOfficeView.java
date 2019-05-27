@@ -8,7 +8,7 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 @ApiModel(value = "Представление офиса для сохранения в БД")
-public class OfficeSaveView {
+public class SaveOfficeView {
 
     @NotNull(message = "orgId can't be null")
     @ApiModelProperty(value = "Уникальный идентификатор оргнанизации")

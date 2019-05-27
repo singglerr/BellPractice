@@ -8,7 +8,7 @@ import ru.bellintegrator.singglerr.practice.dao.organization.OrganizationDao;
 import ru.bellintegrator.singglerr.practice.model.Office;
 import ru.bellintegrator.singglerr.practice.model.Organization;
 import ru.bellintegrator.singglerr.practice.model.mapper.MapperFacade;
-import ru.bellintegrator.singglerr.practice.view.OfficeSaveView;
+import ru.bellintegrator.singglerr.practice.view.SaveOfficeView;
 import ru.bellintegrator.singglerr.practice.view.OfficeView;
 import ru.bellintegrator.singglerr.practice.view.ResultView;
 import ru.bellintegrator.singglerr.practice.view.SimpleOfficeView;
@@ -62,7 +62,7 @@ public class OfficeServiceImpl implements OfficeService {
      */
     @Override
     @Transactional
-    public ResultView add(@Valid OfficeSaveView office) {
+    public ResultView add(@Valid SaveOfficeView office) {
         Organization org = organizationDao.loadById(office.getOrgId());
         Office officeToSave = new Office(
                 office.getName(),

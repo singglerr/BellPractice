@@ -5,7 +5,7 @@ import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import ru.bellintegrator.singglerr.practice.service.office.OfficeService;
-import ru.bellintegrator.singglerr.practice.view.OfficeSaveView;
+import ru.bellintegrator.singglerr.practice.view.SaveOfficeView;
 import ru.bellintegrator.singglerr.practice.view.OfficeView;
 import ru.bellintegrator.singglerr.practice.view.ResultView;
 import ru.bellintegrator.singglerr.practice.view.SimpleOfficeView;
@@ -47,7 +47,7 @@ public class OfficeController {
 
     @ApiOperation(value = "Добавить новый офис", httpMethod = "POST")
     @PostMapping(value = "/save")
-    public ResultView addOffice(@RequestBody OfficeSaveView office){
+    public ResultView addOffice(@RequestBody SaveOfficeView office){
         return officeService.add(office);
     }
 }
