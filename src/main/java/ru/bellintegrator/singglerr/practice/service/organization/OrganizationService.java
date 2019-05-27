@@ -25,14 +25,14 @@ public interface OrganizationService {
     /**
      * Получение организации по её уникальному идентификатору
      * @param id - уникальный идентификатор организации
-     * @return
+     * @return OrganizationView
      */
     OrganizationView organizationById(Long id);
 
     /**
      * Добавление новой организации в БД
      * @param organization - организация
-     * @return результат выполнение операции
+     * @return результат выполнения операции
      */
     ResultView add(@Valid OrganizationView organization);
 
