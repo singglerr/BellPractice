@@ -2,7 +2,10 @@ package ru.bellintegrator.singglerr.practice.service.office;
 
 import org.springframework.validation.annotation.Validated;
 import ru.bellintegrator.singglerr.practice.view.*;
-import ru.bellintegrator.singglerr.practice.view.filter.OfficeFilterView;
+import ru.bellintegrator.singglerr.practice.view.office.OfficeFilterView;
+import ru.bellintegrator.singglerr.practice.view.office.OfficeView;
+import ru.bellintegrator.singglerr.practice.view.office.SaveOfficeView;
+import ru.bellintegrator.singglerr.practice.view.office.SimpleOfficeView;
 
 import javax.validation.Valid;
 import java.util.List;

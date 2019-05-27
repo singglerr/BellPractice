@@ -6,10 +6,10 @@ import org.springframework.transaction.annotation.Transactional;
 import ru.bellintegrator.singglerr.practice.dao.organization.OrganizationDao;
 import ru.bellintegrator.singglerr.practice.model.Organization;
 import ru.bellintegrator.singglerr.practice.model.mapper.MapperFacade;
-import ru.bellintegrator.singglerr.practice.view.OrganizationView;
+import ru.bellintegrator.singglerr.practice.view.organization.OrganizationView;
 import ru.bellintegrator.singglerr.practice.view.ResultView;
-import ru.bellintegrator.singglerr.practice.view.SimpleOrganizationView;
-import ru.bellintegrator.singglerr.practice.view.filter.OrganizationFilterView;
+import ru.bellintegrator.singglerr.practice.view.organization.SimpleOrganizationView;
+import ru.bellintegrator.singglerr.practice.view.organization.OrganizationFilterView;
 
 import javax.validation.Valid;
 import java.util.List;

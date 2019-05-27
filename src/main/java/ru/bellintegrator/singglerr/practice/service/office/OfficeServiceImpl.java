@@ -8,11 +8,11 @@ import ru.bellintegrator.singglerr.practice.dao.organization.OrganizationDao;
 import ru.bellintegrator.singglerr.practice.model.Office;
 import ru.bellintegrator.singglerr.practice.model.Organization;
 import ru.bellintegrator.singglerr.practice.model.mapper.MapperFacade;
-import ru.bellintegrator.singglerr.practice.view.SaveOfficeView;
-import ru.bellintegrator.singglerr.practice.view.OfficeView;
+import ru.bellintegrator.singglerr.practice.view.office.SaveOfficeView;
+import ru.bellintegrator.singglerr.practice.view.office.OfficeView;
 import ru.bellintegrator.singglerr.practice.view.ResultView;
-import ru.bellintegrator.singglerr.practice.view.SimpleOfficeView;
-import ru.bellintegrator.singglerr.practice.view.filter.OfficeFilterView;
+import ru.bellintegrator.singglerr.practice.view.office.SimpleOfficeView;
+import ru.bellintegrator.singglerr.practice.view.office.OfficeFilterView;
 
 import javax.validation.Valid;
 import java.util.List;

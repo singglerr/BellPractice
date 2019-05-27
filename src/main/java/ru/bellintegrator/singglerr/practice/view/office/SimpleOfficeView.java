@@ -1,4 +1,4 @@
-package ru.bellintegrator.singglerr.practice.view;
+package ru.bellintegrator.singglerr.practice.view.office;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -7,8 +7,8 @@ import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
-@ApiModel(value = "Офис")
-public class OfficeView {
+@ApiModel(value = "Упрощённое представление офиса")
+public class SimpleOfficeView {
 
     @NotNull(message = "id can't be null")
     @ApiModelProperty(value = "Уникальный идентификатор офиса")
@@ -18,14 +18,6 @@ public class OfficeView {
     @Size(max = 50)
     @ApiModelProperty(value = "Название офиса")
     private String name;
-
-    @NotEmpty(message = "address can't be null")
-    @Size(max = 80)
-    @ApiModelProperty(value = "Адрес офиса")
-    private String address;
-
-    @ApiModelProperty(value = "Телефонный номер офиса")
-    private String phone;
 
     @ApiModelProperty(value = "Активен ли офис")
     private Boolean isActive;
@@ -46,22 +38,6 @@ public class OfficeView {
         this.name = name;
     }
 
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
-    public String getPhone() {
-        return phone;
-    }
-
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
-
     public Boolean getActive() {
         return isActive;
     }
@@ -72,6 +48,6 @@ public class OfficeView {
 
     @Override
     public String toString() {
-        return "{id:" + id + ";name:" + name + ";address:" + address + ";phone:" + phone + ";isActive:" + isActive + "}";
+        return "{id:" + id + ";name:" + name + ";isActive:" + isActive + "}";
     }
 }

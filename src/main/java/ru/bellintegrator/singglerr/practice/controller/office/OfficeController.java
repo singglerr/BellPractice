@@ -5,11 +5,11 @@ import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import ru.bellintegrator.singglerr.practice.service.office.OfficeService;
-import ru.bellintegrator.singglerr.practice.view.SaveOfficeView;
-import ru.bellintegrator.singglerr.practice.view.OfficeView;
+import ru.bellintegrator.singglerr.practice.view.office.SaveOfficeView;
+import ru.bellintegrator.singglerr.practice.view.office.OfficeView;
 import ru.bellintegrator.singglerr.practice.view.ResultView;
-import ru.bellintegrator.singglerr.practice.view.SimpleOfficeView;
-import ru.bellintegrator.singglerr.practice.view.filter.OfficeFilterView;
+import ru.bellintegrator.singglerr.practice.view.office.SimpleOfficeView;
+import ru.bellintegrator.singglerr.practice.view.office.OfficeFilterView;
 
 import java.util.List;
 

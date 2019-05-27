@@ -5,10 +5,10 @@ import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import ru.bellintegrator.singglerr.practice.service.organization.OrganizationService;
-import ru.bellintegrator.singglerr.practice.view.OrganizationView;
+import ru.bellintegrator.singglerr.practice.view.organization.OrganizationView;
 import ru.bellintegrator.singglerr.practice.view.ResultView;
-import ru.bellintegrator.singglerr.practice.view.SimpleOrganizationView;
-import ru.bellintegrator.singglerr.practice.view.filter.OrganizationFilterView;
+import ru.bellintegrator.singglerr.practice.view.organization.SimpleOrganizationView;
+import ru.bellintegrator.singglerr.practice.view.organization.OrganizationFilterView;
 
 import java.util.List;
 
