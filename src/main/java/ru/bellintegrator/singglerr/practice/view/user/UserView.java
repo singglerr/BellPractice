@@ -13,7 +13,7 @@ public class UserView {
 
     @NotNull(message = "id can't be null")
     @ApiModelProperty(value = "Уникальный идентификатор человека")
-    private Integer id;
+    private Long id;
 
     @NotEmpty(message = "firstName can't be null")
     @Size(max = 50)
@@ -58,7 +58,7 @@ public class UserView {
     public UserView() {
     }
 
-    public UserView(@NotNull(message = "id can't be null") Integer id,
+    public UserView(@NotNull(message = "id can't be null") Long id,
                     @NotEmpty(message = "firstName can't be null") @Size(max = 50) String firstName,
                     @Size(max = 50) String secondName,
                     @Size(max = 50) String middleName,
@@ -82,11 +82,11 @@ public class UserView {
         this.isIdentified = isIdentified;
     }
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

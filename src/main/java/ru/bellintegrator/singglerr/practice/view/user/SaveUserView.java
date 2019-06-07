@@ -13,7 +13,7 @@ public class SaveUserView {
 
     @NotNull(message = "officeId can't be null")
     @ApiModelProperty(value = "Уникальный идентификатор офиса")
-    private Integer officeId;
+    private Long officeId;
 
     @NotEmpty(message = "firstName can't be null")
     @Size(max = 50)
@@ -59,11 +59,11 @@ public class SaveUserView {
     @ApiModelProperty(value = "Подтверждён ли документ")
     private Boolean isIdentified;
 
-    public Integer getOfficeId() {
+    public Long getOfficeId() {
         return officeId;
     }
 
-    public void setOfficeId(Integer officeId) {
+    public void setOfficeId(Long officeId) {
         this.officeId = officeId;
     }
 

@@ -13,10 +13,10 @@ public class UpdateUserView {
 
     @NotNull(message = "id can't be null")
     @ApiModelProperty(value = "Уникальный идентификатор человека")
-    private Integer id;
+    private Long id;
 
     @ApiModelProperty(value = "Идентификатор офиса")
-    private Integer officeId;
+    private Long officeId;
 
     @NotEmpty(message = "firstName can't be null")
     @Size(max = 50)
@@ -58,19 +58,19 @@ public class UpdateUserView {
     @ApiModelProperty(value = "Подтверждён ли документ")
     private Boolean isIdentified;
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
-    public Integer getOfficeId() {
+    public Long getOfficeId() {
         return officeId;
     }
 
-    public void setOfficeId(Integer officeId) {
+    public void setOfficeId(Long officeId) {
         this.officeId = officeId;
     }
 

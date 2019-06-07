@@ -12,7 +12,7 @@ public class SimpleUserView {
 
     @NotNull
     @ApiModelProperty(value = "Уникальный идентификатор")
-    private Integer id;
+    private Long id;
 
     @NotEmpty
     @Size(max = 50)
@@ -35,7 +35,7 @@ public class SimpleUserView {
     public SimpleUserView() {
     }
 
-    public SimpleUserView(@NotNull Integer id,
+    public SimpleUserView(@NotNull Long id,
                           @NotEmpty @Size(max = 50) String firstName,
                           @Size(max = 50) String secondName,
                           @Size(max = 50) String middleName,
@@ -47,11 +47,11 @@ public class SimpleUserView {
         this.position = position;
     }
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

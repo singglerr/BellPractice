@@ -10,7 +10,7 @@ import javax.validation.constraints.Size;
 public class UserFilterView {
 
     @NotNull(message = "officeId can't be null")
-    private Integer officeId;
+    private Long officeId;
 
     @Size(max = 50)
     @ApiModelProperty(value = "Имя")
@@ -36,11 +36,11 @@ public class UserFilterView {
     @ApiModelProperty(value = "Код страны")
     private String citizenshipCode;
 
-    public Integer getOfficeId() {
+    public Long getOfficeId() {
         return officeId;
     }
 
-    public void setOfficeId(Integer officeId) {
+    public void setOfficeId(Long officeId) {
         this.officeId = officeId;
     }
 

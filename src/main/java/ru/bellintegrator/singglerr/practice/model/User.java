@@ -1,6 +1,7 @@
 package ru.bellintegrator.singglerr.practice.model;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "User")
